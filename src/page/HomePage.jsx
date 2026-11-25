@@ -1,80 +1,80 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 import PolaroidLineCarousel from '../components/HangingCarousel';
+import { GiMilkCarton } from "react-icons/gi";
+import { GiSugarCane } from "react-icons/gi";
+import { GiFruitBowl } from "react-icons/gi";
+import HeroSection from '../components/HeroSection';
+import CategoriesSection from '../components/CategoriesSection';
+
+
+const categories = [
+  {
+    label: 'Classic Flavors',
+    description: 'Timeless vanilla, chocolate and strawberry favorites.',
+    src: '/src/assets/icecream/image-01.png',
+    tags: ['Vanilla', 'Chocolate', 'Strawberry'],
+  },
+  {
+    label: 'Premium Flavors',
+    description: 'Rich creations with indulgent ingredients.',
+    src: '/src/assets/icecream/image-02.png',
+    tags: ['Butterscotch', 'Caramel', 'Pistachio'],
+  },
+  {
+    label: 'Seasonal Flavors',
+    description: 'Fresh limited-time flavors for every season.',
+    src: '/src/assets/icecream/image-03.png',
+    tags: ['Seasonal', 'Limited Edition'],
+  },
+  {
+    label: 'Vegan & Dairy-Free',
+    description: 'Creamy plant-based scoops for dairy-free diets.',
+    src: '/src/assets/icecream/image-04.png',
+    tags: ['Vegan', 'Dairy-Free'],
+  }
+]
+
 
 const HomePage = () => {
   return (
-    <main className='overflow-x-hidden'>
-      <section className='relative flex flex-col md:flex-row items-center min-h-[620px] bg-gradient-to-br from-rose-100 via-red-200 to-rose-300'>
-      
-        <div className='relative z-10 w-full md:w-1/2 h-full flex flex-col items-start justify-center p-8 md:p-16'>
-          
-          <motion.img
-            animate={{
-              y: [0, -14, 0],
-              rotate: [-4, 6, -4],
-            }}
-            transition={{
-              duration: 4.5,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-            className='w-24 h-24 md:w-36 md:h-36 mb-4 md:mb-0 md:absolute md:top-5 md:right-12 drop-shadow-md pointer-events-none'
-            src='/src/assets/icecream.webp'
-            alt='icecream icon'
-          />
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className='text-4xl font-extrabold tracking-tight text-rose-950 max-w-sm leading-tight text-start'
-          >
-            The best ice cream brands
-          </motion.h1>
-
-          
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
-            className='text-xl md:text-2xl font-medium text-rose-900/80 max-w-md mt-4'
-          >
-            All your faves, all in one place.
-          </motion.p>
-
-          
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
-            className='text-lg font-semibold mt-8 py-3.5 px-8 text-white rounded-xl bg-gray-900 hover:bg-rose-800 shadow-lg shadow-rose-900/25 transition-colors cursor-pointer'
-          >
-            Explore Flavors
-          </motion.button>
-        </div>
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className='w-full md:w-1/2 h-[380px] md:h-[620px] overflow-hidden md:rounded-bl-[4rem] shadow-2xl'
-        >
-          <motion.img
-            whileHover={{ scale: 1.04 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className='object-cover w-full h-full'
-            src='/src/assets/icecart-image-1.jpeg'
-            alt='Colorful artisanal ice cream cones'
-          />
-        </motion.div>
-      </section>
+    <main className='overflow-x-hidden bg-[#efece6]'>
+      <HeroSection />
       <section>
         <PolaroidLineCarousel />
       </section>
+      <section className='flex flex-col items-center p-12 min-h-[400px]'>
+        <h2 className='text-3xl text-left'>Ingredient Story</h2>
+        <div className='flex flex-col md:flex-row items-center justify-center gap-8 mt-8'>
+          <div className='flex flex-col items-center gap-4'>
+            <GiMilkCarton className='w-16 h-16 text-rose-900' />
+            <h3 className='text-xl font-semibold'>Fresh Dairy</h3>
+            <p className='text-center max-w-xs'>We source our milk from local farms to ensure the freshest and creamiest ice cream possible.</p>
+          </div>
+          <div className='flex flex-col items-center gap-4'>
+            <GiSugarCane className='w-16 h-16 text-rose-900' />
+            <h3 className='text-xl font-semibold'>Natural Sweeteners</h3>
+            <p className='text-center max-w-xs'>Our ice creams are sweetened with natural cane sugar, providing a rich flavor without artificial additives.</p>
+          </div>
+          <div className='flex flex-col items-center gap-4'>
+            <GiFruitBowl className='w-16 h-16 text-rose-900' />
+            <h3 className='text-xl font-semibold'>Real Fruit</h3>
+            <p className='text-center max-w-xs'>We use real fruits in our ice creams, ensuring authentic flavors and a delightful taste experience.</p>
+          </div>
+        </div>
+      </section>
 
-      <section>
-        <h2></h2>
+      <section id='categories' className='scroll-mt-16'>
+        <CategoriesSection cards={categories} />
+      </section>
+
+      <section className='py-12 md:py-16 bg-white'>
+        <div className='container mx-auto px-6 md:px-12 lg:px-24 flex flex-col items-center'>
+          <h2 className='text-3xl text-center'>Order Now  </h2>
+          <p className='text-center mt-4 text-lg'>Experience the joy of our ice creams delivered to your doorstep. Order online and indulge in your favorite flavors today!</p>
+          <button className='cursor-pointer mx-auto mt-8 rounded-md bg-rose-900 px-6 py-3 text-white hover:bg-rose-800'>
+            Order Now
+          </button>
+        </div>
       </section>
     </main>
   )

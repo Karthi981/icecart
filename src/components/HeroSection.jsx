@@ -10,28 +10,13 @@ const HeroSection = () => {
   return (
     <section className='relative flex min-h-[calc(100vh-80px)] flex-col items-center overflow-hidden bg-gradient-to-br from-rose-100 via-rose-200 to-rose-300 md:flex-row'>
         <div className='relative z-10 flex h-full w-full flex-col items-start justify-center p-8 md:w-1/2 md:p-16'>
-          
-          <motion.img
-            animate={{
-              y: [0, -14, 0],
-              rotate: [-4, 6, -4],
-            }}
-            transition={{
-              duration: 4.5,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-            className='pointer-events-none mb-4 h-24 w-24 drop-shadow-md md:absolute md:right-12 md:top-5 md:mb-0 md:h-36 md:w-36'
-            src={floatingCreamImage}
-            alt='icecream icon'
-          />
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className='text-4xl font-extrabold tracking-tight text-rose-950 max-w-sm leading-tight text-start'
+            className='text-4xl font-bold tracking-tight text-gray-900 max-w-sm leading-tight text-start'
           >
-            The best ice cream brands
+            The Best Ice cream brands
           </motion.h1>
 
           
@@ -62,7 +47,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className='h-[380px] w-full overflow-hidden shadow-2xl md:h-[calc(100vh-80px)] md:w-1/2 md:rounded-bl-[4rem]'
+          className='h-[380px] w-full overflow-hidden shadow-2xl md:h-[calc(100vh-80px)] md:w-[100%] md:rounded-bl-[4rem]'
         >
           <motion.img
             whileHover={{ scale: 1.04 }}

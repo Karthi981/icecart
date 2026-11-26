@@ -19,6 +19,8 @@
   --h2: clamp(2rem, 4vw, 3.5rem);
   --h3: clamp(1.5rem, 3vw, 2.25rem);
 
+  --p: clamp(1rem, 1.12vw, 1.5rem);
+
   /* Global typography */
   font-family: var(--sans);
   font-size: 16px;
@@ -34,4 +36,5 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 

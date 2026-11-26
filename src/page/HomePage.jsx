@@ -5,6 +5,7 @@ import { GiSugarCane } from "react-icons/gi";
 import { GiFruitBowl } from "react-icons/gi";
 import HeroSection from '../components/HeroSection';
 import CategoriesSection from '../components/CategoriesSection';
+import { useNavigate } from 'react-router-dom';
 
 
 const categories = [
@@ -36,6 +37,10 @@ const categories = [
 
 
 const HomePage = () => {
+
+  const navigate = useNavigate();
+
+
   return (
     <main className='overflow-x-hidden bg-[#efece6]'>
       <HeroSection />
@@ -71,7 +76,7 @@ const HomePage = () => {
         <div className='container mx-auto px-6 md:px-12 lg:px-24 flex flex-col items-center'>
           <h2 className='text-3xl text-center'>Order Now  </h2>
           <p className='text-center mt-4 text-lg'>Experience the joy of our ice creams delivered to your doorstep. Order online and indulge in your favorite flavors today!</p>
-          <button className='cursor-pointer mx-auto mt-8 rounded-md bg-rose-900 px-6 py-3 text-white hover:bg-rose-800'>
+          <button onClick={() => navigate('/products')} className='cursor-pointer mx-auto mt-8 rounded-md bg-rose-900 px-6 py-3 text-white hover:bg-rose-800'>
             Order Now
           </button>
         </div>

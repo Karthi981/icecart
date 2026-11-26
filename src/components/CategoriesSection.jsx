@@ -169,7 +169,7 @@ export function CategoriesSection({
   const style = { "--cw": `${geo.cw}px`, "--ch": `${geo.ch}px` };
 
   return (
-    <section ref={ref} className={cn("w-full overflow-hidden bg-white py-12 md:py-16", className)}>
+    <section ref={ref} className={cn("w-full overflow-hidden bg-inherit py-12 md:py-16", className)}>
       <h2 className="mx-auto max-w-[18ch] px-6 text-center font-serif text-[clamp(36px,4.4vw,60px)] font-light leading-[1.08] tracking-[-0.02em] text-[#0b1424]">
         {title}
       </h2>

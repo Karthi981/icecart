@@ -8,6 +8,7 @@ import ContactPage from './page/ContactPage'
 import ProductListing from './page/ProductListing'
 import { Provider } from 'react-redux'
 import { store } from './store'
+import FavouritePage from './page/FavouritePage'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/products" element={<ProductListing />} />
+          <Route path="favourites" element={<FavouritePage/>}/>
         </Routes>
         <Footer />
       </Provider>

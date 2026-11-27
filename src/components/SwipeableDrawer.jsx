@@ -6,7 +6,7 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
-import { addMultipleToCart, closeCart, deleteFromCart, openCart } from '../store/cartSlice';
+import { addToCart, closeCart, deleteFromCart, openCart,reduceQuantityFromCart } from '../store/cartSlice';
 import {
   ListItemAvatar,
   Avatar,
@@ -82,13 +82,14 @@ export default function Drawer({productList}) {
       <Divider />
 
       {/* Products */}
-      <Box sx={{ flex: 1, overflowY: "auto", px: 2 }}>
+      <Box className="" sx={{ flex: 1, overflowY: "auto", px: 2 }}>
         {productList.length === 0 ? (
           <Stack
             alignItems="center"
             justifyContent="center"
             sx={{ height: "100%", py: 6 }}
             spacing={2}
+            className='flex justify-center items-center'
           >
             <FaShoppingBag sx={{ fontSize: 200, color: "#bbb" }} />
             <Typography fontWeight={600}>
@@ -142,11 +143,12 @@ export default function Drawer({productList}) {
                   >
                     <IconButton
                       size="small"
+                      disabled ={product.quantity === 1}
                       sx={{
                         border: "1px solid #ddd",
                         borderRadius: 1,
                       }}
-                      onClick={() => dispatch(addMultipleToCart(product))}
+                      onClick={() => dispatch(reduceQuantityFromCart(product))}
                     >
                       <IoIosRemoveCircle fontSize="small" />
                     </IconButton>
@@ -161,7 +163,7 @@ export default function Drawer({productList}) {
                         border: "1px solid #ddd",
                         borderRadius: 1,
                       }}
-                      onClick={() => dispatch(addMultipleToCart(product))}
+                      onClick={() => dispatch(addToCart(product))}
                     >
                       <IoMdAdd fontSize="small" />
                     </IconButton>
